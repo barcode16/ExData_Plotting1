@@ -1,6 +1,6 @@
 #Read data from datafile which needs to be in R Working Directory
 #Source data downloaded from https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
-#Download date: 4th Aug 2014
+# Original assignment completed Aug 2014. Re-completed Oct 2015 on Signature Track
 
 data<-read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
 
@@ -20,10 +20,6 @@ colnames(data)<-tolower(gsub("[^[:alnum:]]", "", colnames(data)))
 #Create a subset of the data to include only the dates from 2007-02-01 to 2007-02-02
 
 subdata<-data[data$date=="2007-02-01" | data$date=="2007-02-02", ]
-
-#Remove original data set to free up memory
-
-rm(data)
 
 #Open png graphics device, create histogram, and close graphics device)
 

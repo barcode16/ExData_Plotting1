@@ -1,6 +1,6 @@
 #Read data from datafile which needs to be in R Working Directory
 #Source data downloaded from https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
-#Download date: 4th Aug 2014
+# Original assignment completed Aug 2014. Re-completed Oct 2015 on Signature Track
 
 data<-read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
 
@@ -21,10 +21,6 @@ colnames(data)<-tolower(gsub("[^[:alnum:]]", "", colnames(data)))
 
 subdata<-data[data$date=="2007-02-01" | data$date=="2007-02-02", ]
 
-#Remove original data set to free up memory
-
-rm(data)
-
 #Open png graphics device
 
 png(file="plot4.png", height=480, width=480)
@@ -34,7 +30,6 @@ png(file="plot4.png", height=480, width=480)
 par(mfcol=c(2,2), mar=c(5,5,2,1), oma=c(0,0,2,0))
 
 #Create first plot which is the same as that produced by plot2.R
-
 
 plot(subdata$datetime, subdata$globalactivepower,
      type="l",
